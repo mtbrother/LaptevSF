@@ -1,2 +1,4 @@
+<<<<<<< HEAD
 print("goodbye;")
-print("hello mr.green")
+print("hello mr.green;")
+
