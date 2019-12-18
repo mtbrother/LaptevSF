@@ -1,4 +1,0 @@
-<<<<<<< HEAD
-print("goodbye;")
-print("hello mr.green;")
-
