@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `lastname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Р¤Р°РјРёР»СЊ',
+  `lastname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Фамилия',
   `email` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -15,56 +15,59 @@ CREATE TABLE `users` (
   KEY `users_firstname_lastname_idx` (`firstname`,`lastname`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `users` VALUES ('1','Ozella','Kling','mueller.jarret@example.net','0'),
-('2','Hillary','Reynolds','yflatley@example.org','1'),
-('3','Catalina','Will','elian.jacobson@example.com','0'),
-('4','Yasmine','Considine','karen45@example.com','1'),
-('5','Bradly','Cummerata','kenton.bogan@example.org','875003'),
-('6','Alexander','Terry','vidal.nader@example.com','341268'),
-('7','Gene','Sauer','gmann@example.net','4420140306'),
-('8','Katheryn','Kovacek','mhermann@example.net','743'),
-('9','Brando','Kohler','mireya.johnston@example.com','48760'),
-('10','Guadalupe','Durgan','brian36@example.net','0'),
-('11','Lesley','Morar','savion.jast@example.org','506583'),
-('12','Armando','Powlowski','sbeer@example.org','0'),
-('13','Jane','McCullough','mckenzie93@example.org','1'),
-('14','Dawn','Kertzmann','alf85@example.com','0'),
-('15','Hobart','Farrell','ena.funk@example.org','243097'),
-('16','Reyna','Kreiger','edyth.herman@example.com','703139'),
-('17','Dedric','Hackett','hrowe@example.com','521389'),
-('18','Jennyfer','Abernathy','kaia60@example.com','203213'),
-('19','Eleazar','Gleichner','fahey.alan@example.com','439'),
-('20','Bernadette','Gislason','herbert.streich@example.net','1'),
-('21','Caleigh','Mann','qtromp@example.net','0'),
-('22','Giovanna','Hahn','steve32@example.net','431'),
-('23','Eva','Bahringer','pbreitenberg@example.net','52030755'),
-('24','Felicity','Lind','seamus.maggio@example.com','0'),
-('25','Brennan','Lakin','dondricka@example.com','0'),
-('26','Thad','Hudson','maxine19@example.net','1'),
-('27','Lewis','Krajcik','rohan.evan@example.net','1'),
-('28','Gerson','Skiles','xkozey@example.org','994815'),
-('29','Diana','Bins','bogan.everardo@example.net','0'),
-('30','General','Reinger','laurine.haley@example.com','341547'),
-('31','Anastasia','Corkery','bernhard.shaniya@example.org','534561'),
-('32','German','Pollich','edmond.hartmann@example.com','0'),
-('33','Jerrold','Blanda','mireille.marquardt@example.com','421548'),
-('34','Roselyn','Aufderhar','dedrick.padberg@example.net','1'),
-('35','Carlotta','Gutkowski','armstrong.colleen@example.com','183549'),
-('36','Tamara','Macejkovic','gaylord.hildegard@example.net','826974'),
-('37','Brielle','Fritsch','delores.flatley@example.net','1'),
-('38','Donald','Runte','cary.greenholt@example.com','9498580089'),
-('39','Andrew','Auer','keshawn.bauch@example.org','0'),
-('40','Kari','Tremblay','pschneider@example.net','67'),
-('41','Viola','Hyatt','stewart.kuhn@example.org','0'),
-('42','Whitney','Torphy','twindler@example.org','0'),
-('43','Celine','Mann','lehner.dejah@example.org','76'),
-('44','Misty','Kunde','pgoyette@example.com','1'),
-('45','Abbey','Goldner','ukoch@example.com','268'),
-('46','Lafayette','Gusikowski','arnaldo99@example.net','305'),
-('47','Orlando','Mohr','ghagenes@example.com','1'),
-('48','Hellen','Rogahn','williamson.johnpaul@example.net','1'),
-('49','Aglae','DuBuque','kunde.tabitha@example.net','1'),
-('50','Dashawn','Rohan','grady.edgardo@example.org','1');
+alter table users add column created_at varchar(150),
+add column updated_at varchar(150);
+
+INSERT INTO `users` VALUES ('1','Ozella','Kling','mueller.jarret@example.net','0', current_timestamp, current_timestamp),
+('2','Hillary','Reynolds','yflatley@example.org','1', current_timestamp, current_timestamp),
+('3','Catalina','Will','elian.jacobson@example.com','0', current_timestamp, current_timestamp),
+('4','Yasmine','Considine','karen45@example.com','1', current_timestamp, current_timestamp),
+('5','Bradly','Cummerata','kenton.bogan@example.org','875003', current_timestamp, current_timestamp),
+('6','Alexander','Terry','vidal.nader@example.com','341268', current_timestamp, current_timestamp),
+('7','Gene','Sauer','gmann@example.net','4420140306', current_timestamp, current_timestamp),
+('8','Katheryn','Kovacek','mhermann@example.net','743', current_timestamp, current_timestamp),
+('9','Brando','Kohler','mireya.johnston@example.com','48760', current_timestamp, current_timestamp),
+('10','Guadalupe','Durgan','brian36@example.net','0', current_timestamp, current_timestamp),
+('11','Lesley','Morar','savion.jast@example.org','506583', current_timestamp, current_timestamp),
+('12','Armando','Powlowski','sbeer@example.org','0', current_timestamp, current_timestamp),
+('13','Jane','McCullough','mckenzie93@example.org','1', current_timestamp, current_timestamp),
+('14','Dawn','Kertzmann','alf85@example.com','0', current_timestamp, current_timestamp),
+('15','Hobart','Farrell','ena.funk@example.org','243097', current_timestamp, current_timestamp),
+('16','Reyna','Kreiger','edyth.herman@example.com','703139', current_timestamp, current_timestamp),
+('17','Dedric','Hackett','hrowe@example.com','521389', current_timestamp, current_timestamp),
+('18','Jennyfer','Abernathy','kaia60@example.com','203213', current_timestamp, current_timestamp),
+('19','Eleazar','Gleichner','fahey.alan@example.com','439', current_timestamp, current_timestamp),
+('20','Bernadette','Gislason','herbert.streich@example.net','1', current_timestamp, current_timestamp),
+('21','Caleigh','Mann','qtromp@example.net','0', current_timestamp, current_timestamp),
+('22','Giovanna','Hahn','steve32@example.net','431', current_timestamp, current_timestamp),
+('23','Eva','Bahringer','pbreitenberg@example.net','52030755', current_timestamp, current_timestamp),
+('24','Felicity','Lind','seamus.maggio@example.com','0', current_timestamp, current_timestamp),
+('25','Brennan','Lakin','dondricka@example.com','0', current_timestamp, current_timestamp),
+('26','Thad','Hudson','maxine19@example.net','1', current_timestamp, current_timestamp),
+('27','Lewis','Krajcik','rohan.evan@example.net','1', current_timestamp, current_timestamp),
+('28','Gerson','Skiles','xkozey@example.org','994815', current_timestamp, current_timestamp),
+('29','Diana','Bins','bogan.everardo@example.net','0', current_timestamp, current_timestamp),
+('30','General','Reinger','laurine.haley@example.com','341547', current_timestamp, current_timestamp),
+('31','Anastasia','Corkery','bernhard.shaniya@example.org','534561', current_timestamp, current_timestamp),
+('32','German','Pollich','edmond.hartmann@example.com','0', current_timestamp, current_timestamp),
+('33','Jerrold','Blanda','mireille.marquardt@example.com','421548', current_timestamp, current_timestamp),
+('34','Roselyn','Aufderhar','dedrick.padberg@example.net','1', current_timestamp, current_timestamp),
+('35','Carlotta','Gutkowski','armstrong.colleen@example.com','183549', current_timestamp, current_timestamp),
+('36','Tamara','Macejkovic','gaylord.hildegard@example.net','826974', current_timestamp, current_timestamp),
+('37','Brielle','Fritsch','delores.flatley@example.net','1', current_timestamp, current_timestamp),
+('38','Donald','Runte','cary.greenholt@example.com','9498580089', current_timestamp, current_timestamp),
+('39','Andrew','Auer','keshawn.bauch@example.org','0', current_timestamp, current_timestamp),
+('40','Kari','Tremblay','pschneider@example.net','67', current_timestamp, current_timestamp),
+('41','Viola','Hyatt','stewart.kuhn@example.org','0', current_timestamp, current_timestamp),
+('42','Whitney','Torphy','twindler@example.org','0', current_timestamp, current_timestamp),
+('43','Celine','Mann','lehner.dejah@example.org','76', current_timestamp, current_timestamp),
+('44','Misty','Kunde','pgoyette@example.com','1', current_timestamp, current_timestamp),
+('45','Abbey','Goldner','ukoch@example.com','268', current_timestamp, current_timestamp),
+('46','Lafayette','Gusikowski','arnaldo99@example.net','305', current_timestamp, current_timestamp),
+('47','Orlando','Mohr','ghagenes@example.com','1', current_timestamp, current_timestamp),
+('48','Hellen','Rogahn','williamson.johnpaul@example.net','1', current_timestamp, current_timestamp),
+('49','Aglae','DuBuque','kunde.tabitha@example.net','1', current_timestamp, current_timestamp),
+('50','Dashawn','Rohan','grady.edgardo@example.org','1', current_timestamp, current_timestamp);
 
 
 DROP TABLE IF EXISTS `profiles`;
@@ -1004,19 +1007,57 @@ INSERT INTO `user_games` VALUES ('1','1'),
 ('14','14'),
 ('15','15'); 
 
--- Написать скрипт, возвращающий список имен (только firstname) пользователей без повторений в алфавитном порядке
+-- 1.Пусть в таблице users поля created_at и updated_at оказались незаполненными.
+-- Заполните их текущими датой и временем.
 
-select distinct firstname from users order by firstname asc;
+-- Выполнено выше.
 
--- Написать скрипт, отмечающий несовершеннолетних пользователей как неактивных (поле is_active = true).
--- При необходимости предварительно добавить такое поле в таблицу profiles со значением по умолчанию = false (или 0)
+-- 2.Таблица users была неудачно спроектирована. 
+-- Записи created_at и updated_at были заданы типом VARCHAR и в них долгое время помещались значения в формате "20.10.2017 8:10".
+-- Необходимо преобразовать поля к типу DATETIME, сохранив введеные ранее значения.
 
-update profiles set is_active = 1 where ((year(current_date) - year(birthday)) - 
-(date_format(current_date, '%m%d')<date_format(birthday,'%m%d')))<18;
+alter table users modify created_at datetime, modify updated_at datetime;
 
--- iv. Написать скрипт, удаляющий сообщения «из будущего» (дата позже сегодняшней)
+-- 3.В таблице складских запасов storehouses_products в поле value могут встречаться самые разные цифры: 0,
+-- если товар закончился и выше нуля, если на складе имеются запасы. 
+-- Необходимо отсортировать записи таким образом, чтобы они выводились в порядке увеличения значения value.
+-- Однако, нулевые запасы должны выводиться в конце, после всех записей.
 
-delete from messages where created_at > now();
 
--- v. Написать название темы курсового проекта (в комментарии)
--- automarket
+DROP TABLE IF EXISTS `storehouses_products`;
+CREATE TABLE `storehouses_products`(
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `value` bigint(10) unsigned default null,
+ primary key(`id`)
+);
+insert into `storehouses_products` values ('1', 'umbrella', '0'),
+('2', 'iphone','2500'),
+('3','socks','0'),
+('4', 'tabletPC', '30'),
+('5', 'pen', '500'),
+('6', 'car', '1')
+; 
+select * from storehouses_products order by value = 0, value; 
+
+
+-- 4.(по желанию) Из таблицы users необходимо извлечь пользователей, родившихся в августе и мае.
+-- Месяцы заданы в виде списка английских названий ('may', 'august')
+
+select firstname, lastname, monthname(birthday)
+ from users, profiles where users.id = profiles.user_id 
+ and month(birthday) rlike '[58]';
+
+
+-- 1.Подсчитайте средний возраст пользователей в таблице 
+
+select floor(avg(TIMESTAMPDIFF(year, birthday, now())))
+as 'средний возраст' from profiles;
+
+-- 2.Подсчитайте количество дней рождения, которые приходятся на каждый из дней недели.
+-- Следует учесть, что необходимы дни недели текущего года, а не года рождения.
+
+select date_format(DATE_ADD(birthday, 
+interval(TIMESTAMPDIFF(year, birthday, now())) year), '%W')
+as 'weekday', count('Колличество дней рождения') 
+from profiles group by weekday order by count('Колличество дней рождения');
